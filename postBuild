@@ -1,2 +1,4 @@
 jupyter contrib nbextension install --user
 jupyter nbextension enable collapsible_headings/main
+jupyter nbextension enable hide_input/main
+jupyter nbextension enable toc2/main

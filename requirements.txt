@@ -3,4 +3,4 @@ PuLP == 1.6.10
 Matplotlib >= 2.2.2
 Numpy >= 1.14.2
 Pandas >= 0.25.0
-jupyter_contrib_nbextensions && jupyter contrib nbextension install 
+jupyter_contrib_nbextensions

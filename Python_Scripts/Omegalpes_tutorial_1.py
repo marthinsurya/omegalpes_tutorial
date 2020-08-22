@@ -55,8 +55,8 @@ def main(work_path,consumption_profile, pv_profile):
                                                energy_type=elec,
                                                p_min=0)
 
-##step 6 define objective
-    grid_import.minimize_production()
+##step 6 define objective (skip since there is no optimisation)
+
 
 ##step 7 Create the energy nodes
     elec_node = EnergyNode(time, name="electrical_node",
@@ -64,10 +64,10 @@ def main(work_path,consumption_profile, pv_profile):
 
     elec_node.connect_units(grid_import, grid_export, pv_production,house_consumption)
 
-##step 8 Add the energy nodes to the optimization model
+# ##step 8 Add the energy nodes to the optimization model
     model.add_nodes(elec_node)
 
-##step 9 Launch the optimization
+# ##step 9 Launch the optimization
 
     model.writeLP(work_path + r'\optim_models\tutorial_1.lp')
     model.solve_and_update()
@@ -91,8 +91,6 @@ def main(work_path,consumption_profile, pv_profile):
 ##function to show results
 def print_results():
 
-    if LpStatus[MODEL.status] == 'Optimal':
-        print("\n - - - - - OPTIMISATION RESULTS - - - - - ")
         print('House consumption = {0} kWh'.format(
             sum(HOUSE_CONSUMPTION.p.get_value())))
         print('PV production = {0} kWh'.format(
@@ -104,20 +102,7 @@ def print_results():
 
         plt.show()
 
-    elif LpStatus[MODEL.status] == 'Infeasible':
-        print("Sorry, the optimisation problem has no feasible solution !")
 
-    elif LpStatus[MODEL.status] == 'Unbounded':
-        print("The cost function of the optimisation problem is unbounded !")
-
-    elif LpStatus[MODEL.status] == 'Undefined':
-        print("Sorry, a feasible solution has not been found (but may exist). "
-              "PuLP does not manage to interpret the solver's output, "
-              "the infeasibility of the MILP problem may have been "
-              "detected during presolve.")
-
-    else:
-        print("Sorry, the optimisation problem has not been solved.")
 
 if __name__ == "__main__":
     # OPTIMIZATION PARAMETERS #
@@ -132,12 +117,3 @@ if __name__ == "__main__":
     # Show results
     print_results()
 
-
-    fig4 = plt.figure(4)
-    ax4 = plt.axes()
-    # plot_quantity(time, grid_export.p, fig4, ax4, label='export', color='b')
-    # plot_quantity(time, grid_import.p, fig4, ax4, label='import', color='r')
-    # plot_quantity_bar(time, washer_consumption.p, fig4, ax4, label='washer')
-    plot_quantity(time, building_consumption.p, fig4, ax4, label='Johns consumption',title='Johns consumption')
-    # plot_quantity(time, pv_production.p, fig4, ax4, label='pv',color='y')
-    ax4.legend()

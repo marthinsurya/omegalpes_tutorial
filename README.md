@@ -1,2 +1,4 @@
 # omegalpes_tutorial
-Omegalpes tutorial for students
+Welcome to OmegAlpes Tutorial !
+
+You can start the tutorial by running Omegalpes_tutorial.ipynb! Hope you enjoy your journey !! 

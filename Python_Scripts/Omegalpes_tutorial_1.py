@@ -55,8 +55,8 @@ def main(work_path,consumption_profile, pv_profile):
                                                energy_type=elec,
                                                p_min=0)
 
-##step 6 define objective (skip since there is no optimisation)
-
+##step 6 define objective
+    grid_import.minimize_production()
 
 ##step 7 Create the energy nodes
     elec_node = EnergyNode(time, name="electrical_node",
@@ -91,6 +91,8 @@ def main(work_path,consumption_profile, pv_profile):
 ##function to show results
 def print_results():
 
+    if LpStatus[MODEL.status] == 'Optimal':
+        print("\n - - - - - OPTIMISATION RESULTS - - - - - ")
         print('House consumption = {0} kWh'.format(
             sum(HOUSE_CONSUMPTION.p.get_value())))
         print('PV production = {0} kWh'.format(
@@ -102,7 +104,20 @@ def print_results():
 
         plt.show()
 
+    elif LpStatus[MODEL.status] == 'Infeasible':
+        print("Sorry, the optimisation problem has no feasible solution !")
 
+    elif LpStatus[MODEL.status] == 'Unbounded':
+        print("The cost function of the optimisation problem is unbounded !")
+
+    elif LpStatus[MODEL.status] == 'Undefined':
+        print("Sorry, a feasible solution has not been found (but may exist). "
+              "PuLP does not manage to interpret the solver's output, "
+              "the infeasibility of the MILP problem may have been "
+              "detected during presolve.")
+
+    else:
+        print("Sorry, the optimisation problem has not been solved.")
 
 if __name__ == "__main__":
     # OPTIMIZATION PARAMETERS #

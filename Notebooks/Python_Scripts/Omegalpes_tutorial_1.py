@@ -75,7 +75,7 @@ def main(work_path,consumption_profile, pv_profile):
 ##step 10 plot result
     plot_node_energetic_flows(elec_node)
 
-    # #plot house consumption and pv production
+    # #plot house consumption and pv production (before simulation)
     # fig4 = plt.figure(4)
     # ax4 = plt.axes()
     # plot_quantity(time, house_consumption.p, fig4, ax4, label='house consumption', title='John consumption and production profile',color='g')

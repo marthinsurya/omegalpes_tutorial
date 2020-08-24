@@ -15,7 +15,7 @@ from omegalpes.energy.units.production_units import VariableProductionUnit, \
     FixedProductionUnit
 from omegalpes.general.optimisation.model import OptimisationModel
 from omegalpes.general.utils.plots import plot_quantity, plt, \
-    plot_node_energetic_flows
+    plot_node_energetic_flows,plot_quantity_bar
 from omegalpes.general.time import TimeUnit
 from omegalpes.energy.energy_types import elec
 
@@ -78,10 +78,10 @@ def main(work_path,consumption_profile, pv_profile):
     # #plot house consumption and pv production
     # fig4 = plt.figure(4)
     # ax4 = plt.axes()
-    # plot_quantity(time, house_consumption.p, fig4, ax4, label='house consumption', title='Jane consumption and production profile')
-    # plot_quantity(time, pv_production.p, fig4, ax4, label='pv production', title='Jane consumption and production profile')
-    # plt.xlabel('Time (hour)')
-    # plt.ylabel('Power (kW)')
+    # plot_quantity(time, house_consumption.p, fig4, ax4, label='house consumption', title='John consumption and production profile',color='g')
+    # plot_quantity_bar(time, pv_production.p, fig4, ax4, label='pv production', title='John consumption and production profile',color='g')
+    # plt.xlabel('Time (hours)')
+    # plt.ylabel('Hourly mean power (kW)')
     # ax4.legend()
 
     return model, time, pv_production, house_consumption, grid_export, grid_import, elec_node

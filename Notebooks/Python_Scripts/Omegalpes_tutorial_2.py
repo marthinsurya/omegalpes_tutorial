@@ -86,6 +86,16 @@ def main(work_path,consumption_profile, pv_profile,wm_profile):
 ##step 11 plot result
     plot_node_energetic_flows(elec_node)
 
+    # #plot house consumption and pv production
+    # fig4 = plt.figure(4)
+    # ax4 = plt.axes()
+    # wm_consumption_fix = FixedProductionUnit(time, 'washing_machine_consumption', p=wm_cons_file,
+    #                                       energy_type=elec)
+    # plot_quantity(time, house_consumption.p, fig4, ax4, label='John consumption w/o washing machine', title='John consumption profile',color='g')
+    # plot_quantity(time, wm_consumption_fix.p, fig4, ax4, label='Washing machine consumption', title='John consumption profile',color='r')
+    # plt.xlabel('Time (hours)')
+    # plt.ylabel('Hourly mean power (kW)')
+    # ax4.legend()
 
     return model, time, pv_production, house_consumption, grid_export, grid_import, elec_node, wm_consumption, storage
 

@@ -1,50 +1,39 @@
-from ipywidgets import widgets, Layout, Box, GridspecLayout
-from IPython.display import display
-from IPython.display import clear_output
+#from quizs.question import Question
+import ipywidgets
 
-def create_multipleChoice_widget(description, options, correct_answer):
-    if correct_answer not in options:
-        options.append(correct_answer)
+class Question:
+    def __init__(self, prompt, answer):
+        self.prompt = prompt
+        self.answer = answer
 
-    correct_answer_index = options.index(correct_answer)
+question_prompts =[
+    "How much energy was imported from the grid?\n",
+    "How much energy was consumed from the PV?\n",
+    "How many energy units are there in the energy system?\n"
+]
 
-    radio_options = [(words, i) for i, words in enumerate(options)]
-    alternativ = widgets.RadioButtons(
-        options=radio_options,
-        description='',
-        disabled=False
-    )
+questions =[
+    Question(question_prompts[0], str(1)),
+    Question(question_prompts[1], str(2)),
+    Question(question_prompts[2], str(3))
+]
 
-    description_out = widgets.Output()
-    with description_out:
-        print(description)
+def run_test(questions):
+    score=0
 
-    feedback_out = widgets.Output()
-
-    def check_selection(b):
-        a = int(alternativ.value)
-        if a == correct_answer_index:
-            s = '\x1b[6;30;42m' + "Riktig." + '\x1b[0m' + "\n"  # green color
-        else:
-            s = '\x1b[5;30;41m' + "Feil. " + '\x1b[0m' + "\n"  # red color
-        with feedback_out:
-            clear_output()
-            print(s)
-        return
-
-    check = widgets.Button(description="submit")
-    check.on_click(check_selection)
-
-    return widgets.VBox([description_out, alternativ, check, feedback_out]
+    for question in questions:
+        answer=input(question.prompt)
+        if answer == question.answer:
+            score +=1
 
 
-def questions():
-    Q1 = create_multipleChoice_widget('blablabla',['apple','banana','pear'],'pear')
-    Q2 = create_multipleChoice_widget('lalalalal',['cat','dog','mouse'],'dog')
-    Q3 = create_multipleChoice_widget('jajajajaj',['blue','white','red'],'white')
+    if score ==len(question_prompts):
+        print("Great! You got " + str(score) + " / " + str(
+                     len(questions)) + "correct. You have mastered Tutorial 1.")
+    else:
+        print(
+             "You got " + str(score) + " / " + str(len(questions)) + "correct, try to get full points !!")
+        print('\033[1;31;1m', 'Are you ready to redo again?', '\033[1;31;0m')
+        run_test(questions)
 
-    display(Q1)
-    display(Q2)
-    display(Q3)
-
-quiz()
+run_test(questions)

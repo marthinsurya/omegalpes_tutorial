@@ -86,7 +86,7 @@ def main(work_path,consumption_profile, pv_profile,wm_profile):
 ##step 11 plot result
     plot_node_energetic_flows(elec_node)
 
-    # #plot house consumption and pv production
+    # #plot house consumption and pv production (before optimisation)
     # fig4 = plt.figure(4)
     # ax4 = plt.axes()
     # wm_consumption_fix = FixedProductionUnit(time, 'washing_machine_consumption', p=wm_cons_file,

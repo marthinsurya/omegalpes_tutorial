@@ -66,7 +66,7 @@ def create_textinputquiz_widget(description, text_description, correct_answer, a
 
 def quiz():
     questions = create_textinputquiz_widget('Try to change previous code to show how much energy was imported from the grid?\n (one decimal)', "answer:", '5.2', "kWh",
-                                            '[hint]:In the example, house_consumption represents fixed consumption defined at 3rd step. Try swapping it with other energy unit.')
+                                            '[hint]:In the example, house_consumption represents energy unit defined in 3rd step. Try swapping it with other energy unit you need.')
 
     display(questions)
 

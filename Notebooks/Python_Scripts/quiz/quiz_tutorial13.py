@@ -7,7 +7,7 @@ out = widgets.Output()
 
 
 alternativ = widgets.RadioButtons(
-    options=[('2', 1), ('13', 2),('16',3)],
+    options=[('3', 1), ('14', 2),('17',3)],
     description='',
     disabled=False
 )

@@ -7,15 +7,33 @@ class Question:
         self.answer = answer
 
 question_prompts =[
-    "How much energy was imported from the grid?\n",
-    "How much energy was consumed from the PV?\n",
-    "How many energy units are there in the energy system?\n"
+    "Timestep in this simulation is ___ hour(s)\n",
+    "The period of study is ____ hour(s)\n",
+    "How many energy units are there in the model we created?\n",
+    "How many fixed energy units we have in the model we created?\n",
+    "How many variable energy units we have in the model we created?\n",
+    "How many nodes we have in this model we created?\n",
+    "How many objectives we have in this model we created?\n",
+    "Is there any energy export in this simulation?\n",
+    "Is there any energy import in this simulation?\n",
+    "How many instances the export occur in this simulation?\n",
+    "Does pv production cover the consumption outside its period of production?\n",
+    "Is there any import during pv production period?"
 ]
 
 questions =[
     Question(question_prompts[0], str(1)),
-    Question(question_prompts[1], str(2)),
-    Question(question_prompts[2], str(3))
+    Question(question_prompts[1], str(24)),
+    Question(question_prompts[2], str(4)),
+    Question(question_prompts[3], str(2)),
+    Question(question_prompts[4], str(2)),
+    Question(question_prompts[5], str(1)),
+    Question(question_prompts[6], str(1)),
+    Question(question_prompts[7], 'yes'),
+    Question(question_prompts[8], 'yes'),
+    Question(question_prompts[9], str(4)),
+    Question(question_prompts[10], 'no'),
+    Question(question_prompts[11], 'yes')
 ]
 
 def run_test(questions):
@@ -29,7 +47,7 @@ def run_test(questions):
 
     if score ==len(question_prompts):
         print("Great! You got " + str(score) + " / " + str(
-                     len(questions)) + "correct. You have mastered Tutorial 1.")
+                     len(questions)) + "correct. You have cleared Tutorial 1.")
     else:
         print(
              "You got " + str(score) + " / " + str(len(questions)) + "correct, try to get full points !!")

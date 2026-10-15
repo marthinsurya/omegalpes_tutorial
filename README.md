@@ -28,7 +28,7 @@ You play an energy consultant helping a client, John, with his home energy syste
 ## Run it
 Open `OmegAlpes_tutorial.ipynb` in Jupyter (installation guide: installation_guide.md).
 
-For more info, see the [installation guide](installation_guide.md) and the [OMEGAlpes info](OmegAlpes_info.md).
+For more info, see the [installation guide](Installation_guide.md) and the [OMEGAlpes info](OmegAlpes_info.md).
 
 ## Tech
 Python, Jupyter Notebook, OMEGAlpes, PuLP, pandas, matplotlib, ipywidgets

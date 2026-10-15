@@ -20,13 +20,19 @@ You play an energy consultant helping a client, John, with his home energy syste
 
 ## How it is designed
 
+<img width="672" height="343" alt="image" src="https://github.com/user-attachments/assets/e0f753b3-73f3-4b45-91b7-1de0d9e75cc7" />
+
 - Sub-goal worked examples: each tutorial is split into small, labeled steps with a table of contents
 - Practice with instant feedback: quizzes and hint buttons after each tutorial
+
+  <img width="922" height="454" alt="image" src="https://github.com/user-attachments/assets/b3979fff-9d61-4a87-a0a7-795ce7bc41b2" />
+
 - Gamification: a skill-tree dashboard (level 1 and level 2 tutorials), a story-based case and a final "magic sentence" challenge
 - Links from each step to the OMEGAlpes documentation
 
 ## Run it
 Open `OmegAlpes_tutorial.ipynb` in Jupyter (installation guide: installation_guide.md).
+
 
 For more info, see the [installation guide](Installation_guide.md) and the [OMEGAlpes info](OmegAlpes_info.md).
 

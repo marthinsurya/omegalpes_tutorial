@@ -1,4 +1,7 @@
-# omegalpes_tutorial
+# OMEGAlpes Gamified Tutorials
+
+Interactive Jupyter tutorials that teach OMEGAlpes, an open-source Python tool for energy-system optimization (MILP), to beginners. Master thesis project, Grenoble INP (Ense3), 2020.
+
 Welcome to OmegAlpes Tutorial !
 
 You can start the tutorial by running OmegAlpes_tutorial.ipynb! Hope you enjoy your journey !! 
@@ -22,6 +25,18 @@ You play an energy consultant helping a client, John, with his home energy syste
 - Gamification: a skill-tree dashboard (level 1 and level 2 tutorials), a story-based case and a final "magic sentence" challenge
 - Links from each step to the OMEGAlpes documentation
 
+## Run it
+Open `OmegAlpes_tutorial.ipynb` in Jupyter (installation guide: installation_guide.md).
+
+For more info, see the [installation guide](installation_guide.md) and the [OMEGAlpes info](OmegAlpes_info.md).
+
+## Tech
+Python, Jupyter Notebook, OMEGAlpes, PuLP, pandas, matplotlib, ipywidgets
+
+
+
 ## Context and credits
 
 Master thesis, Grenoble INP (Ense3), supervised by Prof. Yann Bultel and Dr. Ildar Daminov. OMEGAlpes was developed by the Grenoble INP Ense3 team; this repository contains the tutorial design only.
+
+
